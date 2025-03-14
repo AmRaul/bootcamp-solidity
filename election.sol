@@ -36,6 +36,14 @@ contract Elaction {
         _;
     }
 
+    constructor(string[] memory _electors, uint256 _maxVotes, uint256 _electionTime) {
+        maxVoters = _maxVotes;
+        electionTime = _electionTime;
+        electors = _electors;
+        owner = msg.sender;
+        electionTimeEnd = block.timestamp + _electionTime;
+    }
+
 
     function getLeader() public view returns(uint256) {
         uint256 leaderIndex;
