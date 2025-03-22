@@ -14,7 +14,12 @@ contract FomoCommunity is ERC721, Ownable {
     error NotEnoughtFund();
     error YouAreHaveNFT();
 
-
+    constructor(address initialOwner, uint256 _supply)
+        ERC721("FomoCommunity", "FC")
+        Ownable(initialOwner)
+    {
+        _maxSupply = _supply;
+    }
 
 
     function _baseURI() internal pure override returns (string memory) {
